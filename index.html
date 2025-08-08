@@ -636,7 +636,7 @@ function renderCart() {
         return;
     }
 
-    cartItemsContainer.innerHTML = cart.map(item => {
+    cartItemsContainer.innerHTML = cart.map((item, index) => {
         const discountedPrice = item.discount 
             ? item.price * (1 - item.discount / 100)
             : item.price;
@@ -646,10 +646,10 @@ function renderCart() {
             : item.image || "";
 
         return `
-            <div class="cart-item" style="display:flex; align-items:center; gap:10px;">
+            <div class="cart-item" style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
                 <img src="${imageUrl}" alt="${item.name}" 
                      style="width:60px; height:60px; object-fit:cover; border-radius:5px;">
-                <div>
+                <div style="flex:1;">
                     <strong>${item.name}</strong><br>
                     ₹${discountedPrice.toFixed(2)}
                     ${item.discount 
@@ -659,10 +659,25 @@ function renderCart() {
                            <span style="color: red;">(-${item.discount}%)</span>` 
                         : ""}
                 </div>
+                <button class="remove-from-cart" data-index="${index}" 
+                        style="background:red; color:white; border:none; padding:5px 8px; cursor:pointer; border-radius:4px;">
+                    ✕
+                </button>
             </div>
         `;
     }).join('');
+
+    // Add click events for remove buttons
+    document.querySelectorAll('.remove-from-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const idx = parseInt(this.getAttribute('data-index'));
+            cart.splice(idx, 1); // Remove item from array
+            updateCartCount();
+            renderCart(); // Re-render cart
+        });
+    });
 }
+
 
 
 
