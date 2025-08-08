@@ -605,8 +605,14 @@ cartPanel.className = "cart-panel";
 cartPanel.innerHTML = `
     <h2>Your Cart</h2>
     <div id="cartItems"></div>
-    <button id="closeCart">Close</button>
+    <div id="cartTotal" style="margin: 10px 0; font-weight: bold;"></div>
+    <button id="buyNowBtn" style="background:green; color:white; border:none; padding:10px; width:100%; border-radius:5px; cursor:pointer;">
+        Buy Now
+    </button>
+    <button id="closeCart" style="margin-top:5px;">Close</button>
 `;
+
+
 document.body.appendChild(cartPanel);
 
 const cartItemsContainer = document.getElementById('cartItems');
@@ -676,6 +682,36 @@ function renderCart() {
             renderCart(); // Re-render cart
         });
     });
+}
+
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'buyNowBtn') {
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+        alert(`Proceeding to checkout...\nTotal: ₹${cart.reduce((sum, item) => {
+            const discountedPrice = item.discount 
+                ? item.price * (1 - item.discount / 100)
+                : item.price;
+            return sum + discountedPrice;
+        }, 0).toFixed(2)}`);
+    }
+});
+
+
+// Calculate total price
+const total = cart.reduce((sum, item) => {
+    const discountedPrice = item.discount 
+        ? item.price * (1 - item.discount / 100)
+        : item.price;
+    return sum + discountedPrice;
+}, 0);
+
+// Show total if element exists
+const totalEl = document.getElementById('cartTotal');
+if (totalEl) {
+    totalEl.textContent = `Total: ₹${total.toFixed(2)}`;
 }
 
 
