@@ -252,6 +252,53 @@
             }
         }
 
+/* PRODUCT DETAILS MODAL */
+.product-modal {
+    display: none; /* hidden by default */
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.product-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Animation for modal */
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 /* CART ICON STYLING */
 .cart-container {
     font-size: 1.2rem;
@@ -354,7 +401,11 @@
                 discount: 20, // in percent
                 category: "electronics",
                 rating: 4.5,
-                image: "https://www.portronics.com/cdn/shop/files/Portronics_Muff_M3_best_headphones_under_5000_1440x.jpg?v=1744893854"
+                images: ["https://www.portronics.com/cdn/shop/files/Portronics_Muff_M3_best_headphones_under_5000_1440x.jpg?v=1744893854" ,
+                "https://www.portronics.com/cdn/shop/files/Portronics_Muff_M3_bluetooth_earphones_with_foldable_design_1440x.jpg?v=1744893899" ,
+                "https://www.portronics.com/cdn/shop/files/Portronics_bluetooth_headphones_Muff_M3_online_1440x.jpg?v=1744894083" ,
+                "https://www.portronics.com/cdn/shop/files/bluetooth_headphones_Muff_M3_with_Mic_1440x.jpg?v=1744894028"
+            ]
             },
             {
                 id: 2,
@@ -364,7 +415,10 @@
                 discount: 45, // in percent
                 category: "electronics",
                 rating: 4.7,
-                image: "https://zebronics.com/cdn/shop/products/flaunt-pro-pic1.jpg?v=1681715950&width=500"
+                 images: ["https://zebronics.com/cdn/shop/products/flaunt-pro-pic1.jpg?v=1681715950&width=500" ,
+                "https://zebronics.com/cdn/shop/products/flaunt-pro-pic7.jpg?v=1681715925&width=1000" ,
+                "https://zebronics.com/cdn/shop/products/flaunt-pro-pic4.jpg?v=1681715950&width=1000"
+            ]
             },
             {
                 id: 3,
@@ -374,7 +428,9 @@
                 discount: 12, // in percent
                 category: "clothing",
                 rating: 4.2,
-                image: "https://image.hm.com/assets/hm/2b/b3/2bb33bed8909de6d9f57177ed0869bd6837a64ca.jpg?imwidth=657"
+                images: ["https://image.hm.com/assets/hm/2b/b3/2bb33bed8909de6d9f57177ed0869bd6837a64ca.jpg?imwidth=657",
+                "https://image.hm.com/assets/hm/44/13/44139ed3dc2614f820b9cb19e7fb246ccf8ab169.jpg?imwidth=1260"
+                 ]
             },
             {
                 id: 4,
@@ -384,7 +440,10 @@
                 discount: 8, // in percent
                 category: "home",
                 rating: 4.8,
-                image: "https://market99.com/cdn/shop/files/ceramic-coffee-mug-330ml-sea-green-mugs-1-29021595762858_2048x2048.jpg?v=1737464621"
+                images: [ "https://market99.com/cdn/shop/files/ceramic-coffee-mug-330ml-sea-green-mugs-1-29021595762858_2048x2048.jpg?v=1737464621" ,
+                 "https://market99.com/cdn/shop/files/ceramic-coffee-mug-330ml-sea-green-mugs-3-29021596221610_2048x2048.jpg?v=1737464623" ,
+                  "https://market99.com/cdn/shop/files/ceramic-coffee-mug-330ml-sea-green-mugs-6-29021596745898_2048x2048.jpg?v=1737464626"
+            ]
             },
             {
                 id: 5,
@@ -394,7 +453,11 @@
                 discount: 15, // in percent
                 category: "beauty",
                 rating: 4.4,
-                image: "https://plumgoodness.com/cdn/shop/files/001_9013bf85-0761-4afd-80a3-878cf4665ce5.jpg?v=1735905481&width=640"
+                images: ["https://plumgoodness.com/cdn/shop/files/001_9013bf85-0761-4afd-80a3-878cf4665ce5.jpg?v=1735905481&width=640",
+                "https://images-static.nykaa.com/media/catalog/product/6/f/6f195dbPLUMX00000068_4.jpg?tr=w-344,h-344,cm-pad_resize" , 
+                "https://images-static.nykaa.com/media/catalog/product/6/f/6f195dbPLUMX00000068_3.jpg?tr=w-344,h-344,cm-pad_resize" , 
+
+            ]
             },
             {
                 id: 6,
@@ -404,7 +467,11 @@
                 discount: 10, // in percent
                 category: "sports",
                 rating: 4.6,
-                image: "https://wiselife.in/cdn/shop/files/2-1_54168651-43b1-4a6d-961c-369e89d4c3e0.png?format=webp&v=1753097881&width=700"
+                images: ["https://wiselife.in/cdn/shop/files/2-1_54168651-43b1-4a6d-961c-369e89d4c3e0.png?format=webp&v=1753097881&width=700",
+                "https://m.media-amazon.com/images/I/71e5dUBAqfL._SL1500_.jpg",
+                "https://m.media-amazon.com/images/I/71ELF8b9EPL._SL1500_.jpg",
+                "https://m.media-amazon.com/images/I/61TstccSZ9L._SL1500_.jpg"
+            ]
             },
             {
                 id: 7,
@@ -414,7 +481,10 @@
                 discount: 35, // in percent
                 category: "electronics",
                 rating: 4.3,
-                image: "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Entertainment/Speakers%20and%20Media%20Players/Images/251614_0_ghxuff.png?tr=w-360"
+                images: ["https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Entertainment/Speakers%20and%20Media%20Players/Images/251614_0_ghxuff.png?tr=w-360",
+                "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Entertainment/Speakers%20and%20Media%20Players/Images/251614_4_os5iwd.png?tr=w-360",
+                "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Entertainment/Speakers%20and%20Media%20Players/Images/251614_5_za9txl.png?tr=w-360"
+            ]
             },
             {
                 id: 8,
@@ -424,7 +494,10 @@
                 discount: 20, // in percent
                 category: "clothing",
                 rating: 4.1,
-                image: "https://jimmyluxury.in/cdn/shop/files/IMG_9220copy_23de15c4-a9e4-421d-9c9a-24f7095afb36.webp?v=1749016548&width=800"
+                images: ["https://jimmyluxury.in/cdn/shop/files/IMG_9220copy_23de15c4-a9e4-421d-9c9a-24f7095afb36.webp?v=1749016548&width=800" ,
+             "https://jimmyluxury.in/cdn/shop/files/IMG_9223copy_e0599ddf-5b86-4f53-96d9-af33222e057a.webp?v=1749016548&width=1000",
+             "https://jimmyluxury.in/cdn/shop/files/IMG_9225copy_6ab59bab-515f-47c7-9c90-44eef2961f79.webp?v=1749016549&width=1000"
+                ]
             }
         ];
 
@@ -459,7 +532,8 @@
     : product.price;
 
 productCard.innerHTML = `
-    <img src="${product.image}" alt="${product.name}" class="product-image">
+    <img src="${product.images[0]}" alt="${product.name}" class="product-image">
+
     <div class="product-info">
         <h3 class="product-name">${product.name}</h3>
         <p class="product-description">${product.description}</p>
@@ -561,13 +635,35 @@ function renderCart() {
         cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
         return;
     }
-    cartItemsContainer.innerHTML = cart.map(item => `
-        <div class="cart-item">
-            <strong>${item.name}</strong><br>
-            ₹${item.price.toFixed(2)}
-        </div>
-    `).join('');
+
+    cartItemsContainer.innerHTML = cart.map(item => {
+        const discountedPrice = item.discount 
+            ? item.price * (1 - item.discount / 100)
+            : item.price;
+
+        const imageUrl = item.images && item.images.length > 0 
+            ? item.images[0] 
+            : item.image || "";
+
+        return `
+            <div class="cart-item" style="display:flex; align-items:center; gap:10px;">
+                <img src="${imageUrl}" alt="${item.name}" 
+                     style="width:60px; height:60px; object-fit:cover; border-radius:5px;">
+                <div>
+                    <strong>${item.name}</strong><br>
+                    ₹${discountedPrice.toFixed(2)}
+                    ${item.discount 
+                        ? `<span style="text-decoration: line-through; color: gray; font-size: 0.9rem;">
+                               ₹${item.price.toFixed(2)}
+                           </span> 
+                           <span style="color: red;">(-${item.discount}%)</span>` 
+                        : ""}
+                </div>
+            </div>
+        `;
+    }).join('');
 }
+
 
 
 
@@ -576,7 +672,94 @@ function renderCart() {
         // INITIAL DISPLAY
         displayProducts(products);
 
-        
+        // PRODUCT MODAL ELEMENTS
+const productModal = document.createElement('div');
+productModal.id = "productModal";
+productModal.className = "product-modal";
+productModal.innerHTML = `
+    <div class="product-modal-content">
+        <span id="closeProductModal" class="close-btn">&times;</span>
+        <img id="modalMainImage" src="" alt="" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:1rem;">
+        <div id="modalThumbnails" style="display:flex; gap:10px; margin-bottom:1rem;"></div>
+        <h2 id="modalName"></h2>
+        <p id="modalDescription"></p>
+        <div id="modalPrice" style="font-size:1.3rem; font-weight:700; margin-top:0.5rem;"></div>
+        <div id="modalRating" style="margin-top:0.5rem;"></div>
+    </div>
+`;
+
+document.body.appendChild(productModal);
+
+const closeProductModal = document.getElementById('closeProductModal');
+const modalImage = document.getElementById('modalImage');
+const modalName = document.getElementById('modalName');
+const modalDescription = document.getElementById('modalDescription');
+const modalPrice = document.getElementById('modalPrice');
+const modalRating = document.getElementById('modalRating');
+
+// OPEN MODAL ON PRODUCT CLICK
+productsGrid.addEventListener('click', function(e) {
+    const card = e.target.closest('.product-card');
+    if (!card || e.target.classList.contains('add-to-cart')) return;
+
+    const productName = card.querySelector('.product-name').textContent;
+    const product = products.find(p => p.name === productName);
+
+    // ✅ DEBUG CHECK
+    if (!product) {
+        console.error("Product not found:", productName);
+        return;
+    }
+
+    // Set main image to first image in array
+    document.getElementById('modalMainImage').src = product.images[0];
+
+    // Generate thumbnail images
+    const thumbsContainer = document.getElementById('modalThumbnails');
+    thumbsContainer.innerHTML = product.images.map(img => `
+        <img src="${img}" 
+             style="width:60px; height:60px; object-fit:cover; cursor:pointer; border:1px solid #ccc;">
+    `).join('');
+
+    // Add click events for thumbnails
+    thumbsContainer.querySelectorAll('img').forEach((thumb, index) => {
+        thumb.addEventListener('click', () => {
+            document.getElementById('modalMainImage').src = product.images[index];
+        });
+    });
+
+    // Set text details
+    document.getElementById('modalName').textContent = product.name;
+    document.getElementById('modalDescription').textContent = product.description;
+
+    const discountedPrice = product.discount 
+        ? product.price * (1 - product.discount / 100)
+        : product.price;
+
+    document.getElementById('modalPrice').innerHTML = `₹${discountedPrice.toFixed(2)} ${
+        product.discount 
+            ? `<span style="text-decoration: line-through; color: gray; font-size: 0.9rem;">₹${product.price.toFixed(2)}</span> <span style="color:red;">(-${product.discount}%)</span>` 
+            : ""
+    }`;
+
+    document.getElementById('modalRating').textContent = `Rating: ${product.rating} ★`;
+
+    // Show modal
+    productModal.style.display = "block";
+});
+
+
+// CLOSE MODAL
+closeProductModal.addEventListener('click', () => {
+    productModal.style.display = "none";
+});
+window.addEventListener('click', (e) => {
+    if (e.target === productModal) {
+        productModal.style.display = "none";
+    }
+});
+
+
         
     </script>
 
@@ -585,6 +768,17 @@ function renderCart() {
     <h2>Your Cart</h2>
     <div id="cartItems"></div>
     <button id="closeCart">Close</button>
+</div>
+<!-- PRODUCT DETAILS MODAL -->
+<div id="productModal" class="product-modal">
+    <div class="product-modal-content">
+        <span id="closeProductModal" class="close-btn">&times;</span>
+        <img id="modalImage" src="" alt="" style="width:100%; max-height:300px; object-fit:cover;">
+        <h2 id="modalName"></h2>
+        <p id="modalDescription"></p>
+        <div id="modalPrice" style="font-size:1.3rem; font-weight:700;"></div>
+        <div id="modalRating"></div>
+    </div>
 </div>
 
 </body>
